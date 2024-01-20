@@ -1,0 +1,20 @@
+<!-- src/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Upload</title>
+</head>
+<body>
+  <h1>Photo Upload</h1>
+
+  <form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" name="photos" accept="image/*" multiple>
+    <button type="button" onclick="uploadPhotos()">Upload Photos</button>
+  </form>
+
+  <script src="/app.js"></script>
+</body>
+</html>
+
