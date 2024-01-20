@@ -5,14 +5,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Photo Upload</title>
+  <style>
+    #thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+    .thumbnail {
+      width: 100%;
+      height: auto;
+      max-width: 250px;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
   <h1>Photo Upload</h1>
 
   <form id="uploadForm" enctype="multipart/form-data">
-    <input type="file" name="photos" accept="image/*" multiple>
+    <input type="file" id="fileInput" name="photos" accept="image/*" multiple>
     <button type="button" onclick="uploadPhotos()">Upload Photos</button>
   </form>
+
+  <div id="thumbnails"></div>
 
   <script src="/app.js"></script>
 </body>

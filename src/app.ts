@@ -1,4 +1,8 @@
 // src/app.ts
+
+// Display thumbnails when files are selected
+document.getElementById('fileInput')?.addEventListener('change', displayThumbnails);
+
 function uploadPhotos() {
   const form = document.getElementById('uploadForm') as HTMLFormElement;
   const formData = new FormData(form);
@@ -22,3 +26,30 @@ function uploadPhotos() {
     });
 }
 
+function displayThumbnails() {
+  const thumbnailsContainer = document.getElementById('thumbnails');
+  thumbnailsContainer!.innerHTML = ''; // Clear existing thumbnails
+
+  const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+  const files = fileInput.files;
+
+  if (files) {
+	for (let i = 0; i < files.length; i++) {
+	  const file = files[i];
+
+	  // Create thumbnail element
+	  const thumbnail = document.createElement('img');
+	  thumbnail.classList.add('thumbnail');
+
+	  // Read the file as Data URL
+	  const reader = new FileReader();
+	  reader.onload = (event) => {
+		thumbnail.src = event.target!.result as string;
+	  };
+	  reader.readAsDataURL(file);
+
+	  // Append thumbnail to the container
+	  thumbnailsContainer!.appendChild(thumbnail);
+	}
+  }
+}
