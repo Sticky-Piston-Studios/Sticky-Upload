@@ -1,3 +1,5 @@
+// 2024 Sticky Piston Studios. MIT license
+
 // src/app.ts
 
 // Display thumbnails when files are selected

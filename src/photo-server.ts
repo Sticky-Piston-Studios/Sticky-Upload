@@ -1,3 +1,5 @@
+// 2024 Sticky Piston Studios. MIT license
+
 // src/photo-server.ts
 import express, { Request, Response } from 'express';
 import * as path from 'path';
